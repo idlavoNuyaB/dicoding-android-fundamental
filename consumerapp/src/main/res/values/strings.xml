@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Github(Consumer App)</string>
+    <string name="search">Search by username</string>
+    <string name="view">View</string>
+    <string name="list">List View</string>
+    <string name="card">Card View</string>
+    <string name="grid">Grid View</string>
+    <string name="name">Name</string>
+    <string name="following">%s Following</string>
+    <string name="followers">%s Followers</string>
+    <string name="repo">%s Repositories</string>
+    <string name="username">Username</string>
+    <string name="notfound">Not Found</string>
+    <string name="change">Change Language</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="tab1">Followers</string>
+    <string name="tab2">Following</string>
+    <string name="in">Indonesia</string>
+    <string name="enus">English (United States)</string>
+    <string name="favorite" translatable="false">Favorite</string>
+    <string name="empty" translatable="false">-</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete">Delete user %s</string>
+    <string name="messagedelete">Are you sure to delete user %s from Favorite User?</string>
+    <string name="cancel">Cancel to delete</string>
+    <string name="deleteall">Delete</string>
+    <string name="info">Information</string>
+    <string name="deletea">Delete all users</string>
+    <string name="messagedeletea">Are you sure to delete all from Favorite User?</string>
+    <string name="infodel">How to Delete Favorite User</string>
+    <string name="repeatnotif">Don\'t forget to search favorite user Github</string>
+    <string name="repeat9AM">Reminder Notification at 9 AM set up</string>
+    <string name="repeat">Reminder Notification at %s set up</string>
+    <string name="cancelrepeat">Reminder Notification is canceled</string>
+    <string name="notification">Notification</string>
+    <string name="titlereminder">Setting Daily Reminder</string>
+    <string name="btnrepeat9am">Set every 9 AM</string>
+    <string name="btnrepeat">Set the clock as you wish</string>
+    <string name="btncancel">Cancel</string>
+    <string name="erroruri">Unknown uri: %s</string>
+    <string name="infonya">For delete one Favorite User, click Favorite User in long time and when alert dialog show, click yes.\nFor delete all Favorite User, click icon trash bin in toolbar and when alert dialog show, click yes.</string>
+    <string name="appwidget_text">Github Favorite User</string>
+    <string name="favorno">This is not favorite user</string>
+    <string name="favoryes">This is favorite user</string>
+</resources>

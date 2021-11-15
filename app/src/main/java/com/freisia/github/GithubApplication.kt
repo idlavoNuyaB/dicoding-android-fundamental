@@ -1,7 +1,7 @@
 package com.freisia.github
 
-import com.freisia.github.api.APIService
-import com.freisia.github.api.Constant
+import com.freisia.github.data.api.APIService
+import com.freisia.github.utilitas.Constant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

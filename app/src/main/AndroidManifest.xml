@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.freisia.github.provider.READ_DB" />
+
+    <permission android:name="com.freisia.github.provider.READ_DB" />
 
     <application
         android:allowBackup="true"
@@ -12,12 +17,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".widget.GithubWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/github_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".service.StackWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
         <activity
-            android:name=".detail.DetailActivity"
+            android:name=".ui.setting.SettingsActivity"
             android:configChanges="orientation|screenSize|locale"
-            android:parentActivityName=".search.SearchActivity"/>
+            android:parentActivityName=".ui.search.SearchActivity"/>
         <activity
-            android:name=".search.SearchActivity"
+            android:name=".ui.detail.DetailActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:parentActivityName=".ui.search.SearchActivity" />
+        <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:parentActivityName=".ui.search.SearchActivity" />
+        <activity
+            android:name=".ui.search.SearchActivity"
             android:configChanges="orientation|screenSize|locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +52,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".utilitas.DailyReminderReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <provider
+            android:name=".provider.UserProvider"
+            android:authorities="com.freisia.github.provider"
+            android:exported="true"
+            android:readPermission="com.freisia.github.provider.READ_DB" />
     </application>
 
 </manifest>

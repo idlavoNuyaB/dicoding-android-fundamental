@@ -7,16 +7,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.freisia.github.detail.DetailActivity
+import com.freisia.github.ui.detail.DetailActivity
 import com.freisia.github.R
-import com.freisia.github.api.model.Users
+import com.freisia.github.data.model.Users
 import kotlinx.android.synthetic.main.layout_item_list.view.*
 import kotlin.collections.ArrayList
 
 class ListAdapter(user: ArrayList<Users?>,recyclerView: RecyclerView) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     private var filtered : ArrayList<Users?> = ArrayList()
     private var loading: Boolean = false
+    private var checkType = 0
     lateinit var onLoadMoreListener: OnLoadMoreListener
+    lateinit var onLongClicker: OnLongClickers
+
     init {
         filtered = user
         if(recyclerView.layoutManager is LinearLayoutManager){
@@ -34,7 +37,7 @@ class ListAdapter(user: ArrayList<Users?>,recyclerView: RecyclerView) : Recycler
             })
         }
     }
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v),View.OnClickListener{
+    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v),View.OnClickListener,View.OnLongClickListener{
         private val avatarUser = v.image
         private val nameUser = v.nama
         private val usernameUser = v.username
@@ -43,6 +46,7 @@ class ListAdapter(user: ArrayList<Users?>,recyclerView: RecyclerView) : Recycler
         private val repoUser = v.repo
         init{
             v.setOnClickListener(this)
+            v.setOnLongClickListener(this)
         }
         fun bindUser(user : Users){
             Glide.with(itemView.context).load(user.avatarUrl).error(R.mipmap.ic_launcher_round).into(avatarUser)
@@ -58,6 +62,11 @@ class ListAdapter(user: ArrayList<Users?>,recyclerView: RecyclerView) : Recycler
             intent.putExtra(DetailActivity.EXTRA_USER, filtered[adapterPosition])
             intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             itemView.context.startActivity(intent)
+        }
+
+        override fun onLongClick(v: View?): Boolean {
+            onLongClicker.onLongClicks(filtered[adapterPosition] as Users)
+            return true
         }
     }
 
@@ -79,7 +88,12 @@ class ListAdapter(user: ArrayList<Users?>,recyclerView: RecyclerView) : Recycler
     fun setLoad(){
         loading = false
     }
+
     interface OnLoadMoreListener {
         fun onLoadMore()
+    }
+
+    interface OnLongClickers {
+        fun onLongClicks(item : Users)
     }
 }
