@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github(Consumer App)</string>
+    <string name="search">Cari Berdasarkan Username</string>
+    <string name="view">Tampilan</string>
+    <string name="list">Tampilan List</string>
+    <string name="card">Tampilan Card</string>
+    <string name="grid">Tampilan Grid</string>
+    <string name="name">Nama</string>
+    <string name="following">%s Mengikut</string>
+    <string name="followers">%s Pengikut</string>
+    <string name="repo">%s Repositori</string>
+    <string name="username">Username</string>
+    <string name="notfound">Tidak Ditemukan</string>
+    <string name="change">Ubah Pengaturan Bahasa</string>
+    <string name="location">Lokasi</string>
+    <string name="company">Perusahaan</string>
+    <string name="tab1">Pengikut</string>
+    <string name="tab2">Mengikut</string>
+    <string name="in">Indonesia</string>
+    <string name="enus">English (United States)</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus user %s</string>
+    <string name="messagedelete">Apakah kamu yakin untuk menghapus user %s dari User Favorite?</string>
+    <string name="cancel">Batal di Hapus</string>
+    <string name="deleteall">Hapus</string>
+    <string name="info">Informasi</string>
+    <string name="deletea">Hapus Semua User</string>
+    <string name="messagedeletea">Apakah kamu yakin untuk menghapus semua user dari User Favorite?</string>
+    <string name="infodel">Bagaimana cara untuk menghapus User Favorite</string>
+    <string name="repeatnotif">Jangan lupa untuk mencari user favorit Github</string>
+    <string name="repeat9AM">Notifikasi pengingat pada jam 9 AM telah dibuat</string>
+    <string name="repeat">Notifikasi pengingat pada jam %s telah dibuat</string>
+    <string name="cancelrepeat">Notifikasi pengingat dibatalkan</string>
+    <string name="notification">Notifikasi</string>
+    <string name="titlereminder">Pengaturan Pengingat Harian</string>
+    <string name="btnrepeat9am">Atur setiap jam 9 AM</string>
+    <string name="btnrepeat">Atur jam sesuai keinginan</string>
+    <string name="btncancel">Batal</string>
+    <string name="erroruri">Uri tidak diketahui: %s</string>
+    <string name="appwidget_text">User Favorite Github</string>
+    <string name="favorno">Ini bukan user favorite</string>
+    <string name="favoryes">Ini user favorite</string>
+    <string name="infonya">Untuk menghapus satu User Favorite, klik User Favorite dalam waktu lama dan ketika alert dialog muncul, klik ya.\nUntuk delete semua User Favorite klik ikon tempat sampah di toolbar dan ketika alert dialog muncul, klik ya.</string>
+</resources>

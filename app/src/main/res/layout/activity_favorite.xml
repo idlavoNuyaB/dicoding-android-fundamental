@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.favorite.FavoriteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutParentf"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/notfound"
+            android:textColor="@color/pureBlack"
+            android:id="@+id/nff"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list1f"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:listitem="@layout/layout_item_list">
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+    <View
+        android:id="@+id/white_viewf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pureWhite"
+        android:visibility="visible"/>
+
+    <ProgressBar
+        android:id="@+id/loadingf"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:indeterminate="true"
+        android:visibility="visible" />
+
+</RelativeLayout>

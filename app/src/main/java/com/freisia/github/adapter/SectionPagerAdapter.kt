@@ -1,15 +1,14 @@
 package com.freisia.github.adapter
 
 import android.content.Context
-import android.view.View
 import androidx.annotation.Nullable
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.freisia.github.R
-import com.freisia.github.detail.follower.FollowersFragment
-import com.freisia.github.detail.following.FollowingFragment
+import com.freisia.github.ui.detail.follower.FollowersFragment
+import com.freisia.github.ui.detail.following.FollowingFragment
 
 class SectionPagerAdapter(private val mContext: Context,fm : FragmentManager,private val username:
                             String?,private val followerInt: Int?,private val followingInt: Int?) : FragmentPagerAdapter(fm,
@@ -47,23 +46,7 @@ class SectionPagerAdapter(private val mContext: Context,fm : FragmentManager,pri
         return mContext.resources.getString(tabTitles[position])
     }
 
-    @Suppress("DEPRECATION")
-    override fun instantiateItem(container: View, position: Int): Any {
-        fragmentList!![position] = super.instantiateItem(container, position) as Fragment
-        when(position){
-            0 -> FollowersFragment.setFrag(
-                fragmentList!![position] as FollowersFragment
-            )
-            1 -> FollowingFragment.setFrag(
-                fragmentList!![position] as FollowingFragment
-            )
-        }
-        return fragmentList!![position]
-    }
-
-
-
     override fun getCount(): Int {
-        return 2
+        return tabTitles.size
     }
 }

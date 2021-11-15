@@ -22,7 +22,10 @@
 
     <TextView
         android:id="@+id/nama"
-        android:layout_width="wrap_content"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="26dp"
@@ -54,7 +57,7 @@
         android:layout_marginBottom="27dp"
         android:text="@string/repo"
         android:textColor="@color/pureBlack"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/following"
         app:layout_constraintStart_toEndOf="@+id/image"
@@ -69,7 +72,7 @@
         android:layout_marginBottom="27dp"
         android:text="@string/followers"
         android:textColor="@color/pureBlack"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/following"
         app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +86,7 @@
         android:layout_marginBottom="27dp"
         android:text="@string/following"
         android:textColor="@color/pureBlack"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/repo"
         app:layout_constraintTop_toTopOf="parent" />

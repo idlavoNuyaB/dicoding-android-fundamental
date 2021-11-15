@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.freisia.github.detail.DetailActivity
+import com.freisia.github.ui.detail.DetailActivity
 import com.freisia.github.R
-import com.freisia.github.api.model.Users
+import com.freisia.github.data.model.Users
 import kotlinx.android.synthetic.main.layout_item_grid.view.*
 
 class GridAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
     private var filtered : ArrayList<Users?> = ArrayList()
     private var loading: Boolean = false
+    private var checkType = 0
+    lateinit var onLongClickers: OnLongClickers
     lateinit var onLoadMoreListener: OnLoadMoreListener
     init {
         filtered = user
@@ -43,11 +45,12 @@ class GridAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         filtered[position]?.let { holder.bindUser(it) }
     }
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener{
+    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener,View.OnLongClickListener{
         private val avatar = v.imageView
         private val name = v.nameGrid
         init {
             v.setOnClickListener(this)
+            v.setOnLongClickListener(this)
         }
         fun bindUser(user : Users) {
             Glide.with(itemView.context).load(user.avatarUrl).error(R.mipmap.ic_launcher_round).into(avatar)
@@ -59,6 +62,11 @@ class GridAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
                 intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
                 itemView.context.startActivity(intent)
             }
+
+        override fun onLongClick(v: View?): Boolean {
+            onLongClickers.onGridLongClicks((filtered[adapterPosition] as Users))
+            return true
+        }
     }
     fun searchResult(result : ArrayList<Users?>){
         filtered = result
@@ -68,7 +76,17 @@ class GridAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
     fun setLoad(){
         loading = false
     }
+
+    fun setType(check : Int){
+        checkType = check
+    }
+
     interface OnLoadMoreListener {
         fun onGridLoadMore()
     }
+
+    interface OnLongClickers {
+        fun onGridLongClicks(item : Users)
+    }
+
 }

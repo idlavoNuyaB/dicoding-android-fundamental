@@ -7,15 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.freisia.github.detail.DetailActivity
+import com.freisia.github.ui.detail.DetailActivity
 import com.freisia.github.R
-import com.freisia.github.api.model.Users
+import com.freisia.github.data.model.Users
 import kotlinx.android.synthetic.main.layout_item_card.view.*
 
 class CardAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : RecyclerView.Adapter<CardAdapter.ViewHolder>()  {
     private var filtered : ArrayList<Users?> = ArrayList()
     private var loading: Boolean = false
+    private var checkType = 0
     lateinit var onLoadMoreListener: OnLoadMoreListener
+    lateinit var onLongClickers: OnLongClickers
     init {
         filtered = user
         if(recyclerView.layoutManager is LinearLayoutManager){
@@ -42,7 +44,7 @@ class CardAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         filtered[position]?.let { holder.bindUser(it) }
     }
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener,View.OnLongClickListener {
         private val avatarUser = v.avatarCard
         private val nameUser = v.nameCard
         private val usernameUser = v.usernameCard
@@ -51,6 +53,7 @@ class CardAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
         private val repoUser = v.repoCard
         init{
             v.setOnClickListener(this)
+            v.setOnLongClickListener(this)
         }
         fun bindUser(user : Users) {
             Glide.with(itemView.context).load(user.avatarUrl).error(R.mipmap.ic_launcher_round).into(avatarUser)
@@ -67,6 +70,10 @@ class CardAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
                 itemView.context.startActivity(intent)
         }
 
+        override fun onLongClick(v: View?): Boolean {
+            onLongClickers.onCardClicks((filtered[adapterPosition] as Users))
+            return true
+        }
     }
     fun searchResult(result : ArrayList<Users?>){
         filtered = result
@@ -76,7 +83,13 @@ class CardAdapter(user: ArrayList<Users?>, recyclerView: RecyclerView) : Recycle
     fun setLoad(){
         loading = false
     }
+
     interface OnLoadMoreListener {
         fun onCardLoadMore()
     }
+
+    interface OnLongClickers {
+        fun onCardClicks(item : Users)
+    }
+
 }
