@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_action_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
+    <item
+        android:id="@+id/language"
+        android:title="@string/change"
+        android:icon="@drawable/ic_action_language"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:title="@string/in"
+                android:id="@+id/menuin"/>
+            <item
+                android:title="@string/enus"
+                android:id="@+id/menuenus"/>
+        </menu>
+    </item>
+    <item
+        android:title="@string/view"
+        android:id="@+id/view"
+        android:icon="@drawable/ic_action_settings"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:title="@string/list"
+                android:id="@+id/menulist"/>
+            <item
+                android:title="@string/card"
+                android:id="@+id/menucard"/>
+            <item
+                android:title="@string/grid"
+                android:id="@+id/menugrid"/>
+        </menu>
+    </item>
+</menu>

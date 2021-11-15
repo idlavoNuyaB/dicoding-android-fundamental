@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="search">Search by username</string>
+    <string name="view">View</string>
+    <string name="list">List View</string>
+    <string name="card">Card View</string>
+    <string name="grid">Grid View</string>
+    <string name="name">Name</string>
+    <string name="following">%s Following</string>
+    <string name="followers">%s Followers</string>
+    <string name="repo">%s Repositories</string>
+    <string name="username">Username</string>
+    <string name="notfound">Not Found</string>
+    <string name="change">Change Language</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="tab1">Followers</string>
+    <string name="tab2">Following</string>
+    <string name="in">Indonesia</string>
+    <string name="enus">English (United States)</string>
+    <string name="empty" translatable="false">-</string>
+</resources>

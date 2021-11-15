@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github</string>
+    <string name="search">Cari Berdasarkan Username</string>
+    <string name="view">Tampilan</string>
+    <string name="list">Tampilan List</string>
+    <string name="card">Tampilan Card</string>
+    <string name="grid">Tampilan Grid</string>
+    <string name="name">Nama</string>
+    <string name="following">%s Mengikut</string>
+    <string name="followers">%s Pengikut</string>
+    <string name="repo">%s Repositori</string>
+    <string name="username">Username</string>
+    <string name="notfound">Tidak Ditemukan</string>
+    <string name="change">Ubah Pengaturan Bahasa</string>
+    <string name="location">Lokasi</string>
+    <string name="company">Perusahaan</string>
+    <string name="tab1">Pengikut</string>
+    <string name="tab2">Mengikut</string>
+    <string name="in">Indonesia</string>
+    <string name="enus">English (United States)</string>
+</resources>
