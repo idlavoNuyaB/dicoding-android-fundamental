@@ -1,2 +1,2 @@
-# dicoding-android-beginner
-Dicoding submission for "Belajar Membuat Aplikasi Android untuk Pemula" class
+# dicoding-android-fundamental
+Dicoding submission for "Belajar Fundamental Aplikasi Android" class
